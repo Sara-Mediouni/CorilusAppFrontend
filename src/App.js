@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './components/Navbar';
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from './components/Home';
+import Doctors from './components/Doctors';
+import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
+import FAQ from './components/FAQ';
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import Footer from './components/footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+    <Navbar/>
+    <Routes>
+    
+      <Route path="/home" element={<Home/>} />
+      <Route path="/doctors" element={<Doctors/>} />
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/faq" element={<FAQ/>} />
+      
+    </Routes>
+    <Footer/>
+  </BrowserRouter>
   );
 }
 
