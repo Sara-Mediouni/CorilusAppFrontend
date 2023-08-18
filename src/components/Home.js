@@ -16,7 +16,7 @@ function Home() {
     <Banner/>
      <Services/>
    <About/>
-    <Question/>
+   
     
   
     

@@ -1,32 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-// Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './components/Home';
 import Doctors from './components/Doctors';
-import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import FAQ from './components/FAQ';
-// Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Footer from './components/footer';
-function App() {
-  return (
-    <BrowserRouter>
+import SignIn from './components/SignIn';
+import SignUp from './components/Signup';
+import ProtectedRoute from './ProtectedRoute';
 
-    <Navbar/>
-    <Routes>
-    
-      <Route path="/home" element={<Home/>} />
-      <Route path="/doctors" element={<Doctors/>} />
-      <Route path="/" element={<Navigate to="/home" />} />
-      <Route path="/faq" element={<FAQ/>} />
-      
-    </Routes>
-    <Footer/>
-  </BrowserRouter>
+function App() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
+  const isSignupPage = location.pathname === "/signup";
+
+  return (
+    <>
+      {!isLoginPage && !isSignupPage && <Navbar />}
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/doctors" element={<Doctors />} />
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/faq" element={<ProtectedRoute Component={FAQ} />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+      {!isLoginPage && !isSignupPage && <Footer />}
+    </>
   );
 }
 

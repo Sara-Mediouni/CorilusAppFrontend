@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import img1 from '../imagemedico/5672794-ai.svg'
 import Footer from './footer'
+import Question from './Question'
 
 function FAQ() {
   return (
@@ -44,7 +45,7 @@ function FAQ() {
 </section>
     </div>
   </div> 
-
+<Question/>
 </section>
 
     </div>
