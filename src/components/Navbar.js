@@ -2,6 +2,7 @@ import React from 'react'
 import img from '../imagemedico/logo (1).png'
 import '../css/style.css'
 import { useState } from 'react';
+import {BsPersonFill} from 'react-icons/bs'
 function Navbar() {
    
         const[fix,setfix]=useState(false)
@@ -17,7 +18,7 @@ function Navbar() {
     <div className="container">
         <div className="row align-items-center">
             <div className="col-lg-12">
-    <nav className="navbar navbar-expand-lg navbar-light ">
+    <nav className="navbar navbar-expand-lg  " style={{borderColor:"transparent"}} >
     <a className="navbar-brand" href="/home"> 
     <img src={img} alt="logo"/></a>
     <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -39,6 +40,9 @@ function Navbar() {
 
             <li className="nav-item">
                 <a className="nav-link " href="/faq">FAQ</a>
+            </li>
+            <li className="nav-item" style={{marginLeft:"100px"}}>
+            <BsPersonFill size="30px"/>
             </li>
         </ul>
     </div>

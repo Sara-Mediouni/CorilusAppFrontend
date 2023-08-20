@@ -45,11 +45,13 @@ function SignUp() {
   const [BirthDate,setBirthDate]=React.useState('');
   const [ Sexe,setSexe]=React.useState('');
   const [ConfirmPassword,setConfirmPassword]=React.useState('');
+  const [Tel,setTel]=React.useState('');
   // Chakra color mode
   const titleColor = useColorModeValue("#329963", "#e6f8ed");
   const textColor = useColorModeValue("gray.400", "white");
   const [selectedOption, setSelectedOption] = React.useState("");
   const [msg, setMsg] = React.useState("");
+
   const Signup = (e) => {
     e.preventDefault();
     
@@ -60,6 +62,7 @@ function SignUp() {
       password: Password,
       birth_date:startDate,
       gender:selectedOption,
+      tel:Tel,
       role:"PATIENT"
     })
     .then((response) => {
@@ -78,7 +81,7 @@ function SignUp() {
     <ChakraProvider theme={theme}>
       <Flex position="relative" mb="40px" bgRepeat="no-repeat" bgImage={banner}>
         <Flex
-          h={{ sm: "initial", md: "125vh", lg: "125vh" }}
+          h={{ sm: "initial", md: "140vh", lg: "140vh" }}
           w="100%"
           maxW="1044px"
           mx="auto"
@@ -144,10 +147,22 @@ function SignUp() {
                   borderRadius="15px"
                   mb="24px"
                   fontSize="sm"
-                  type="text"
+                  type="email"
                   placeholder="Your email adress"
                   size="lg"
                   onChange={(e)=>setEmail(e.target.value)}
+                />
+                 <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                  Tel
+                </FormLabel>
+                <Input
+                  borderRadius="15px"
+                  mb="24px"
+                  fontSize="sm"
+                  type="text"
+                  placeholder="Your tel"
+                  size="lg"
+                  onChange={(e)=>setTel(e.target.value)}
                 />
                  <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                    Gender
@@ -161,7 +176,7 @@ function SignUp() {
                 <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                   Birth date
                 </FormLabel>
-                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                <DatePicker selected={startDate}  onChange={(date) => setStartDate(date)} />
                 <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                   Password
                 </FormLabel>

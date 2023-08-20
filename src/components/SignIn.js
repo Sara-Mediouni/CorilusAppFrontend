@@ -48,7 +48,7 @@ function SignIn() {
     .then((response) => {
       console.log(response.data.token);
       localStorage.setItem('jwtToken', response.data.token);
-     navigate(('../home', { replace: true }))
+     navigate('../home', { replace: true })
     }).catch((error) => {
       console.log(error);
     });

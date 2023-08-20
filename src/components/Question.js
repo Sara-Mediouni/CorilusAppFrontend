@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import img1 from '../imagemedico/techny-signed-insurance-policy (2).gif'
+
 function Question() {
     let [identifiant, setIdentifiant] = React.useState();
     let [doctor, setDoctor] = React.useState();

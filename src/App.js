@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Doctors from './components/Doctors';
@@ -11,6 +13,8 @@ import Footer from './components/footer';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
 import ProtectedRoute from './ProtectedRoute';
+import ProfilePage from './components/Profile';
+import Appointment from './components/appointment';
 
 function App() {
   const location = useLocation();
@@ -21,12 +25,14 @@ function App() {
     <>
       {!isLoginPage && !isSignupPage && <Navbar />}
       <Routes>
+      <Route path="/profile" element={<ProfilePage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/faq" element={<ProtectedRoute Component={FAQ} />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/appointment/:doctorId" element={<Appointment />} />
       </Routes>
       {!isLoginPage && !isSignupPage && <Footer />}
     </>
