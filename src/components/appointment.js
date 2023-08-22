@@ -59,11 +59,11 @@ function addAppointment(e){
       
     })
     .then((response) => {
-      console.log(response.data.token);
+      alert("Appointment added successfully");
       
     
     }).catch((error) => {
-      console.log(error);
+      alert(error);
     });
 }
           useEffect(() => 

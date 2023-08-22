@@ -54,6 +54,19 @@ getPatient();
   
 }, [doctor,appointment]);
 
+function deleteAppointment(id){
+  axios.delete('http://localhost:8080/api/v1/appointment/delete/'+id)
+      
+  .then(function (response) {
+    console.log(response);
+     
+      
+  }).catch(function (error) {
+    alert("error",error);
+  });
+    }
+
+
   return (
     <section style={{ backgroundColor: '#eee' ,marginTop:"100px"}}>
       <MDBContainer className="py-5">
@@ -139,18 +152,9 @@ getPatient();
       {appointment.map((appointment) => (
         <tr>
           <td>
-            <div className='d-flex align-items-center'>
-              <img
-                src='https://mdbootstrap.com/img/new/avatars/8.jpg'
-                alt=''
-                style={{ width: '45px', height: '45px' }}
-                className='rounded-circle'
-              />
-              <div className='ms-3'>
-               
+            
                 <p className='text-muted mb-0'>{appointment.date}</p>
-              </div>
-            </div>
+             
           </td>
       
           <td>
@@ -167,13 +171,13 @@ getPatient();
           </td>
           
           <td>
-  {appointment.status === "ACCEPTED" && <MDBBadge color='success' pill>{appointment.status}</MDBBadge>}
+  {appointment.status === "Accepted" && <MDBBadge color='success' pill>{appointment.status}</MDBBadge>}
   {appointment.status === "Pending" && <MDBBadge color='warning' pill>{appointment.status}</MDBBadge>}
-  {appointment.status === "REFUSED" && <MDBBadge color='danger' pill>{appointment.status}</MDBBadge>}
+  {appointment.status === "Refused" && <MDBBadge color='danger' pill>{appointment.status}</MDBBadge>}
 </td>
         
           <td>
-            <MDBBtn color='danger' rounded size='sm'>
+            <MDBBtn onClick={()=>deleteAppointment(appointment.id)} color='danger' rounded size='sm'>
               Delete
             </MDBBtn>
           </td>

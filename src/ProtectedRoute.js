@@ -4,7 +4,7 @@ const isAuthenticated = localStorage.getItem('jwtToken'); // Check if token exis
 const ProtectedRoute = ({ Component}) => {
 
 
- return isAuthenticated ?  <Component /> : <Navigate to="/auth/login" />
+ return isAuthenticated ?  <Component /> : <Navigate to="/login" />
 
 
 };

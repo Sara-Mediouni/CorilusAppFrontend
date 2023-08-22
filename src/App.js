@@ -25,9 +25,9 @@ function App() {
     <>
       {!isLoginPage && !isSignupPage && <Navbar />}
       <Routes>
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/profile" element={<ProtectedRoute Component={ProfilePage} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/doctors" element={<Doctors />} />
+        <Route path="/doctors" element={<ProtectedRoute Component={Doctors} />} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/faq" element={<ProtectedRoute Component={FAQ} />} />
         <Route path="/login" element={<SignIn />} />

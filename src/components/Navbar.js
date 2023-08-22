@@ -42,7 +42,7 @@ function Navbar() {
                 <a className="nav-link " href="/faq">FAQ</a>
             </li>
             <li className="nav-item" style={{marginLeft:"100px"}}>
-            <BsPersonFill size="30px"/>
+            <a href="/profile" style={{color:"#000"}}><BsPersonFill size="30px"/></a>
             </li>
         </ul>
     </div>

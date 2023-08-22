@@ -56,7 +56,7 @@ getPatient();
   
  
   
-}, [doctor]);
+}, [doctor,identifiant]);
   return (
     <section class="appointment-area" style={{marginBottom:"50px"}} >
     <div class="container">
