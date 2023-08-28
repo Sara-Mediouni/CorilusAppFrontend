@@ -2252,6 +2252,23 @@ ul {
   z-index: 999;
 }
 
+.icon-button__badge {
+  position: absolute;
+  top:30px;
+  right: 100px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.icon-button__badge--hidden {
+  display: none;
+}
 /* line 11, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_menu.scss */
 .main_menu .navbar-brand {
   padding: 0rem !important;

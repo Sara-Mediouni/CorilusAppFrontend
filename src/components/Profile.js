@@ -52,7 +52,7 @@ getPatient();
   
 
   
-}, [doctor,appointment]);
+}, [doctor,appointment,identifiant]);
 
 function deleteAppointment(id){
   axios.delete('http://localhost:8080/api/v1/appointment/delete/'+id)

@@ -3,12 +3,13 @@ import Navbar from './Navbar'
 import img1 from '../imagemedico/5672794-ai.svg'
 import Footer from './footer'
 import Question from './Question'
+import QuestionUser from './QuestionUser'
 
 function FAQ() {
   return (
     <div>
 
-<section className="banner_part" style={{height:"100%"}}>
+<section className="banner_part" style={{height:"50%"}}>
     <div className="container">
         <div className="row align-items-center">
         
@@ -46,6 +47,7 @@ function FAQ() {
     </div>
   </div> 
 <Question/>
+
 </section>
 
     </div>

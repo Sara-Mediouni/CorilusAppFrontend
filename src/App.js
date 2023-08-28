@@ -15,6 +15,7 @@ import SignUp from './components/Signup';
 import ProtectedRoute from './ProtectedRoute';
 import ProfilePage from './components/Profile';
 import Appointment from './components/appointment';
+import QuestionUser from './components/QuestionUser';
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/faq" element={<ProtectedRoute Component={FAQ} />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/myquestions" element={<QuestionUser />} />
         <Route path="/appointment/:doctorId" element={<Appointment />} />
       </Routes>
       {!isLoginPage && !isSignupPage && <Footer />}

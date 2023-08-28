@@ -3,7 +3,17 @@ import axios from 'axios';
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import img1 from '../imagemedico/techny-signed-insurance-policy (2).gif'
-
+import {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardFooter,
+  MDBCardImage,
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBTextArea,
+} from "mdb-react-ui-kit";
 function Question() {
     let [identifiant, setIdentifiant] = React.useState();
     let [doctor, setDoctor] = React.useState();
@@ -81,7 +91,7 @@ getPatient();
                             <div class="form-group">
                                 <label>Question</label>
                                 <textarea name="message" cols="20" rows="7"  placeholder="Question" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required
-                                onChange={(e)=>setQuestion(e.target.value)}></textarea>
+                                ></textarea>
                             </div>
                             <button type='submit' class="main_btn">Post Question</button>
                         </form>
@@ -90,7 +100,7 @@ getPatient();
             </div>
 
         </div>
-
+     
 
     </div>
 </section>
