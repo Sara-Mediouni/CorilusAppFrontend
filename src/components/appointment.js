@@ -37,7 +37,10 @@ function Appointment() {
             setFirstname(response.data.firstname);
             setLastName(response.data.lastname);
 
-        })
+        }).catch((error) => {
+       
+          console.log(error);
+        });
           }
           function getDoctor(){
         
@@ -49,7 +52,10 @@ function Appointment() {
                 setFirstnamedoc(response.data.firstname);
                 setLastNamedoc(response.data.lastname);
     
-            })
+            }).catch((error) => {
+             
+              console.log(error);
+            });
               }  
 function addAppointment(e){
     e.preventDefault();
@@ -81,7 +87,7 @@ function addAppointment(e){
             getDoctor();
            
             
-          }, doctor,identifiant,doctorId);
+          }, doctor,identifiant);
 
     
   return (

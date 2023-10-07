@@ -36,7 +36,10 @@ function Navbar() {
           console.log(response.data);
             setPatient(response.data.id);
             
-        })
+        }).catch((error) => {
+        
+          console.log(error);
+        });
           }
       function getNotif(){
         axios.get('http://localhost:8080/api/v1/notification/findbypatient/'+patient)
@@ -47,7 +50,10 @@ function Navbar() {
           const newNmb = response.data.length;
           setNmb(newNmb);
           localStorage.setItem('notificationCount', newNmb);
-        })
+        }).catch((error) => {
+        
+          console.log(error);
+        });
           }
         const[fix,setfix]=useState(false)
       function setfixed(){
@@ -86,13 +92,13 @@ const savedNmb = localStorage.getItem('notificationCount');
   if (savedNmb !== null) {
     setNmb(parseInt(savedNmb, 10));}
   
-}, patient,identifiant);
+}, identifiant);
   return (
     <header className={fix ? "main_menu home_menu menu_fixed animated fadeInDown":"main_menu home_menu"}>
     <div className="container">
         <div className="row align-items-center">
             <div className="col-lg-12">
-    <nav className="navbar navbar-expand-lg  " style={{borderColor:"transparent"}} >
+    <nav className="navbar navbar-expand-lg"  style={{boxShadow:"none"}}>
     <a className="navbar-brand" href="/home"> 
     <img src={img} alt="logo"/></a>
     <button className="navbar-toggler" type="button" data-toggle="collapse"

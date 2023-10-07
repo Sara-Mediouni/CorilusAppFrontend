@@ -14,9 +14,7 @@ function Banner() {
                         <h5>We are here for your care</h5>
                         <h1>Best Care &
                             Better Doctor</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua. Quis ipsum suspendisse ultrices gravida.Risus cmodo viverra </p>
+                        <p>You can find the closest doctor to you and make an appointment online now ! </p>
                         <a href="#" class="btn_2">Make an appointment</a>
 
                     </div>

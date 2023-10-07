@@ -18,7 +18,14 @@
     color: #555;
 }
 .doc{
-    background-image: url('../img/background/bg_2.png');
+    margin-top: 100px;   
+    padding-top: 50px;
+    height: 100%;
+    background-color: #e6f8ed;
+}
+
+.appointment-area{
+    margin-top: 20px;
     height: 100%;
     background-color: #e6f8ed;
 }

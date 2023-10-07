@@ -40,11 +40,12 @@ function SignUp() {
   const [startDate, setStartDate] = React.useState(new Date());
   const [Email,setEmail]=React.useState('');
   const [Password,setPassword]=React.useState('');
+  const [ConfirmPassword,setConfirmPassword]=React.useState('');
   const [Lastname,setLastname]=React.useState('');
   const [Firstname,setFirstname]=React.useState('');
   const [BirthDate,setBirthDate]=React.useState('');
   const [ Sexe,setSexe]=React.useState('');
-  const [ConfirmPassword,setConfirmPassword]=React.useState('');
+  
   const [Tel,setTel]=React.useState('');
   // Chakra color mode
   const titleColor = useColorModeValue("#329963", "#e6f8ed");
@@ -114,7 +115,14 @@ function SignUp() {
               >
                 Enter your informations to sign up
               </Text>
-              <form onSubmit={Signup}>
+              <form onSubmit={(e) => {
+      e.preventDefault();
+      if (Password === ConfirmPassword) {
+        Signup(e);
+      } else {
+        alert("Passwords don't match");
+      }
+    }}>
               <FormControl>
               <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                  First name
@@ -201,17 +209,7 @@ function SignUp() {
                   size="lg"
                   onChange={(e)=>setConfirmPassword(e.target.value)}
                 />
-                <FormControl display="flex" alignItems="center">
-                  <Switch id="remember-login" colorScheme="teal" me="10px" />
-                  <FormLabel
-                    htmlFor="remember-login"
-                    mb="0"
-                    ms="1"
-                    fontWeight="normal"
-                  >
-                    Remember me
-                  </FormLabel>
-                </FormControl>
+                <a href="/login" style={{color:"#329963"}}>Already registred?</a>
                 <Button
                   fontSize="10px"
                   type="submit"

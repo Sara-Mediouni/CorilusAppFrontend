@@ -31,7 +31,10 @@ function Question() {
             setEmail(response.data.identifiant);
             setFirstname(response.data.firstname);
             setLastName(response.data.lastname)
-        })
+        }).catch((error) => {
+         
+          console.log(error);
+        });
           }
           const AddQuestion = (e) => {
             e.preventDefault();
@@ -66,7 +69,7 @@ getPatient();
   
  
   
-}, [doctor,identifiant]);
+}, [doctor,identifiant,token]);
   return (
     <section class="appointment-area" style={{marginBottom:"50px"}} >
     <div class="container">
@@ -90,7 +93,7 @@ getPatient();
                             </div>
                             <div class="form-group">
                                 <label>Question</label>
-                                <textarea name="message" cols="20" rows="7"  placeholder="Question" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required
+                                <textarea name="message" cols="20" rows="7"  placeholder="Question" onChange={e => setQuestion(e.target.value)}
                                 ></textarea>
                             </div>
                             <button type='submit' class="main_btn">Post Question</button>

@@ -148,6 +148,7 @@ function SignIn() {
                 >
                   SIGN IN
                 </Button>
+                <a href="/signup" style={{color:"#329963"}}>Not registred yet?</a>
               </FormControl>
         </form>
             </Flex>

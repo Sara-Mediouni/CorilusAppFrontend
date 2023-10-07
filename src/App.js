@@ -16,6 +16,8 @@ import ProtectedRoute from './ProtectedRoute';
 import ProfilePage from './components/Profile';
 import Appointment from './components/appointment';
 import QuestionUser from './components/QuestionUser';
+import ProfileEdit from './components/EditProfile';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   const location = useLocation();
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <>
+      <ErrorBoundary>
       {!isLoginPage && !isSignupPage && <Navbar />}
       <Routes>
       <Route path="/profile" element={<ProtectedRoute Component={ProfilePage} />} />
@@ -33,10 +36,11 @@ function App() {
         <Route path="/faq" element={<ProtectedRoute Component={FAQ} />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/myquestions" element={<QuestionUser />} />
+        <Route path="/myquestions" element={<ProtectedRoute Component={QuestionUser} />} />
         <Route path="/appointment/:doctorId" element={<Appointment />} />
+        <Route path="/editprofile/:Id" element={<ProfileEdit />} />
       </Routes>
-      {!isLoginPage && !isSignupPage && <Footer />}
+      {!isLoginPage && !isSignupPage && <Footer />}</ErrorBoundary>
     </>
   );
 }

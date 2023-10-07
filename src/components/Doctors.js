@@ -14,7 +14,10 @@ function Doctors() {
           console.log(response.data);
             setDoctor(response.data);
            
-        })
+        }).catch((error) => {
+        
+          console.log(error);
+        });
           }
 
           useEffect(() => 
@@ -22,7 +25,7 @@ function Doctors() {
             getDoctor();
             console.log(doctor);
            
-          }, [doctor]);
+          }, []);
   return (
     <div className='doc'>
     
@@ -30,7 +33,7 @@ function Doctors() {
     <div class="row text-center" >
 
    {doctor.map((doctor) => (  
-        <div class="col-xl-3 col-sm-6 mb-5" style={{marginTop:"100px"}}>
+        <div class="col-xl-3 col-sm-6 mb-5" style={{marginTop:"100px"}} key={doctor}>
             
 <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow
  dark:bg-gray-800 dark:border-gray-700">

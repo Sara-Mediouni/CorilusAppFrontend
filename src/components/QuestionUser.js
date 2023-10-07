@@ -27,7 +27,10 @@ function QuestionUser() {
           console.log(response.data);
             setDoctor(response.data.id);
             
-        })
+        }).catch((error) => {
+       
+          console.log(error);
+        });
           }
           function getPatient(){
             axios.get('http://localhost:8080/api/v1/question/all/1')
@@ -52,7 +55,7 @@ function QuestionUser() {
             
            
             
-          }, [doctor,identifiant,Question]);
+          }, [doctor,identifiant]);
 
   return (
     <div>

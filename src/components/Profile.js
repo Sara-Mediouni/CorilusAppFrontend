@@ -12,12 +12,15 @@ import {
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
+import { useNavigate, useParams } from 'react-router-dom';
+
 export default function ProfilePage() {
   let [identifiant, setIdentifiant] = React.useState();
   let [doctor, setDoctor] = React.useState({});
   let [token, setToken] = React.useState([]);
-  let [id, setId] = React.useState({});
+  let [id, setId] = React.useState("");
   let [appointment, setAppointment] = React.useState([]);
+  let navigate=useNavigate()
 function getPatient(){
   axios.get('http://localhost:8080/api/v1/patient/getbyident/'+identifiant)
   
@@ -26,7 +29,13 @@ function getPatient(){
       setDoctor(response.data);
       setId(response.data.id)
       
-  })
+  }).catch((error) => {
+   
+    console.log(error);
+  });
+    }
+    function navigateee(){
+      navigate('../editprofile/'+id, { replace: true })
     }
     function getAppointment(){
       axios.get('http://localhost:8080/api/v1/appointment/patient/'+id)
@@ -35,7 +44,10 @@ function getPatient(){
         console.log(response.data);
          setAppointment(response.data);
           
-      })
+      }).catch((error) => {
+     
+        console.log(error);
+      });
         }
 useEffect(() => 
 { const token = localStorage.getItem('jwtToken');
@@ -52,7 +64,7 @@ getPatient();
   
 
   
-}, [doctor,appointment,identifiant]);
+},[identifiant,doctor,token]);
 
 function deleteAppointment(id){
   axios.delete('http://localhost:8080/api/v1/appointment/delete/'+id)
@@ -70,7 +82,7 @@ function deleteAppointment(id){
   return (
     <section style={{ backgroundColor: '#eee' ,marginTop:"100px"}}>
       <MDBContainer className="py-5">
-       
+      
 
         <MDBRow>
           <MDBCol lg="4">
@@ -78,7 +90,7 @@ function deleteAppointment(id){
               <MDBCardBody className="text-center">
                 <MDBCardImage
               
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '100px',marginLeft:"140px" }}
@@ -88,8 +100,9 @@ function deleteAppointment(id){
                 
               </MDBCardBody>
             </MDBCard>
-
-            
+      
+             <button onClick={navigateee} style={{width:"200px",height:"50px",borderRadius:"5px",color:"#fff",marginLeft:"100px",backgroundColor:"#329963"}}>Edit Profile
+            </button>
           </MDBCol>
           <MDBCol lg="8">
             <MDBCard className="mb-4">
@@ -153,7 +166,7 @@ function deleteAppointment(id){
         <tr>
           <td>
             
-                <p className='text-muted mb-0'>{appointment.date}</p>
+                <p className='text-muted mb-0'>{appointment.dateApp}</p>
              
           </td>
       
@@ -162,11 +175,11 @@ function deleteAppointment(id){
           
           </td>
           <td>
-            <p className='fw-normal mb-1'>{appointment.doctor.tel}</p>
+            <p className='fw-normal mb-1'>+32 25486266</p>
            
           </td>
           <td>
-            <p className='fw-normal mb-1'>{appointment.doctor.address}</p>
+            <p className='fw-normal mb-1'>Belgium</p>
            
           </td>
           
